@@ -2,7 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>TODO</title>
+    <title>메인</title>
+    <script>
+      location.href = "/todo";
+    </script>
   </head>
   <body>
 
