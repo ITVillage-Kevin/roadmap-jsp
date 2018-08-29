@@ -36,7 +36,7 @@ public class TodoServlet extends HttpServlet {
 
         todoList.add(new ToDo(todoName, todoDate));
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/todo.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/todo_model2_jquery.jsp");
         request.setAttribute("todoList", todoList);
 
         dispatcher.forward(request, response);
@@ -45,7 +45,7 @@ public class TodoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Hello Servlet doGet!");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/todo.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/todo_model2_jquery.jsp");
 //        request.setAttribute("todoList", todoList);
         dispatcher.forward(request, response);
     }
