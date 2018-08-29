@@ -5,6 +5,7 @@
     <title>메인</title>
     <script>
       location.href = "/todo";
+      // location.href = "/todo_model1.jsp";
     </script>
   </head>
   <body>
