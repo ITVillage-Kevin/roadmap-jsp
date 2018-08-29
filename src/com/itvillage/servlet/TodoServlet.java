@@ -30,6 +30,7 @@ public class TodoServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         System.out.println("Hello Servlet doPost!");
+
         String todoName = request.getParameter("todoName");
         String todoDate = request.getParameter("todoDate");
 
@@ -38,14 +39,6 @@ public class TodoServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/todo.jsp");
         request.setAttribute("todoList", todoList);
 
-        for(ToDo todo : todoList ){
-            String name = todo.getTodoName();
-            String nate = todo.getTodoDate();
-
-            System.out.println("todoName : " + name);
-            System.out.println("todoDate : " + nate);
-            System.out.println("============================");
-        }
         dispatcher.forward(request, response);
     }
 
