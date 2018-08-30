@@ -33,12 +33,16 @@
 
             if(!todoName){
                 alert("할일을 입력해주세요.");
-            }else if(!todoDate){
-                alert("날짜를 입력해주세요.");
-            }else{
-                var form = document.getElementById("todoForm");
-                form.submit();
+                return false;
             }
+            if(!todoDate){
+                alert("날짜를 입력해주세요.");
+                return false;
+            }
+
+            var form = document.getElementById("todoForm");
+            form.submit();
+
         }
     </script>
 </head>
