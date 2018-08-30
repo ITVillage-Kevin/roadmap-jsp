@@ -67,7 +67,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-           alert(2);
+            $("#btnReg").click(function () {
+                var todoName = $("#todoName").val();
+                var todoDate = $("#todoDate").val();
+
+                if(!todoName){
+                    alert("할일을 입력해주세요.");
+                }else if(!todoDate){
+                    alert("날짜를 입력해주세요.");
+                }else{
+                    $("#todoForm").submit();
+                }
+            });
         });
     </script>
 </body>
