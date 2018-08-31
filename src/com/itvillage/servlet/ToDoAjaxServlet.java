@@ -32,6 +32,9 @@ public class ToDoAjaxServlet extends HttpServlet {
         String todoName = request.getParameter("todoName");
         String todoDate = request.getParameter("todoDate");
 
+        System.out.println(todoName);
+        System.out.println(todoDate);
+
         todoList.add(new ToDo(todoName, todoDate));
 
         Gson gson = new Gson();
@@ -39,6 +42,7 @@ public class ToDoAjaxServlet extends HttpServlet {
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        response.setHeader("Access-Control-Allow-Origin", "*");
         response.getWriter().write(json);
 
     }
