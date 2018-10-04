@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ page import="com.itvillage.vo.ToDo" %>
+<%@ page import="com.itvillage.vo.Todo" %>
 
 <%
     request.setCharacterEncoding("UTF-8");
@@ -19,10 +19,10 @@
     String todoName = request.getParameter("todoName");
     String todoDate = request.getParameter("todoDate");
 
-    ToDo.todoList.add(new ToDo(todoName, todoDate));
+    Todo.todoList.add(new Todo(todoName, todoDate));
 
     RequestDispatcher dispatcher = request.getRequestDispatcher("/todo_model1.jsp");
-    request.setAttribute("todoList", ToDo.todoList);
+    request.setAttribute("todoList", Todo.todoList);
 
     dispatcher.forward(request, response);
 %>

@@ -1,6 +1,6 @@
 package com.itvillage.servlet;
 
-import com.itvillage.vo.ToDo;
+import com.itvillage.vo.Todo;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,14 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @WebServlet(name = "TodoServlet")
 public class TodoServlet extends HttpServlet {
     // Database를 대신한다.
-    private List<ToDo> todoList;
+    private List<Todo> todoList;
 
     @Override
     public void init() throws ServletException {
@@ -34,7 +32,7 @@ public class TodoServlet extends HttpServlet {
         String todoName = request.getParameter("todoName");
         String todoDate = request.getParameter("todoDate");
 
-        todoList.add(new ToDo(todoName, todoDate));
+        todoList.add(new Todo(todoName, todoDate));
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/todo_model2_jquery.jsp");
         request.setAttribute("todoList", todoList);

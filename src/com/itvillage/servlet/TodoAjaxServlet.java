@@ -1,7 +1,7 @@
 package com.itvillage.servlet;
 
 import com.google.gson.Gson;
-import com.itvillage.vo.ToDo;
+import com.itvillage.vo.Todo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,10 +12,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "ToDoAjaxServlet", value = "/todoAjax")
-public class ToDoAjaxServlet extends HttpServlet {
+@WebServlet(name = "TodoAjaxServlet", value = "/todoAjax")
+public class TodoAjaxServlet extends HttpServlet {
     // Database를 대신한다.
-    private List<ToDo> todoList;
+    private List<Todo> todoList;
 
     @Override
     public void init() throws ServletException {
@@ -27,18 +27,12 @@ public class ToDoAjaxServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        System.out.println("Hello ToDoAjaxServlet doPost!");
+        Todo todo = new Todo(request.getParameter("todoName"), request.getParameter("todoDate"));
 
-        String todoName = request.getParameter("todoName");
-        String todoDate = request.getParameter("todoDate");
-
-        System.out.println(todoName);
-        System.out.println(todoDate);
-
-        todoList.add(new ToDo(todoName, todoDate));
+        todoList.add(todo);
 
         Gson gson = new Gson();
-        String json = gson.toJson(todoList);
+        String json = gson.toJson(todo);
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
@@ -48,7 +42,7 @@ public class ToDoAjaxServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Hello ToDoAjaxServlet doGet!");
+        System.out.println("Hello TodoAjaxServlet doGet!");
         response.setContentType("application/x-json; charset=UTF-8");
 
         Gson gson = new Gson();
